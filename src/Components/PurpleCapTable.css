@@ -1,0 +1,24 @@
+.purpleCap {
+    width: 70%; 
+    margin: 50px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .purple-cap {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .purple-cap th, .purple-cap td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .purple-cap th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .purple-cap td {
+    text-align: center; 
+  }

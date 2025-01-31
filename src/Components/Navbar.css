@@ -1,0 +1,33 @@
+.navbar{
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.navbar p{
+    color: white;
+    font-size: x-large;
+    font-family: monospace; 
+}
+
+.navbar-links{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: center;
+    gap: 30px;
+    padding-right: 50px;
+}
+
+.navbar logo{
+    color: white;
+    font-size: larger;
+    font-family: monospace; 
+    padding-left: 50px;
+}

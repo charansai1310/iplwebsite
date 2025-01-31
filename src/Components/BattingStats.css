@@ -1,0 +1,24 @@
+.battingStats {
+    width: 70%; 
+    margin: 50px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .batting-stats {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .batting-stats th, .batting-stats td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .batting-stats th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .batting-stats td {
+    text-align: center; 
+  }

@@ -1,0 +1,70 @@
+.teamplayers {
+    box-sizing: border-box;
+  }
+  
+  .team-details {
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .team-details img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+  }
+  
+  .group3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .group2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+  }
+  
+  .group5 {
+    width: 350px; /* Corrected from 350x to 350px */
+    height: 2vh;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .squad {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 10px;
+    padding: 30px 4%;
+    align-items: center;
+    justify-items: center;
+  }
+  
+  .team-details .group1 div {
+    width: 200px;
+    background-color: red;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .team-details .group1 div h3 {
+    color: white;
+    margin: 0;
+  }
+  

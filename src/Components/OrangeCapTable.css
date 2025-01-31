@@ -1,0 +1,24 @@
+.orangeCap {
+    width: 70%; 
+    margin: 50px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .orange-cap {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .orange-cap th, .orange-cap td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .orange-cap th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .orange-cap td {
+    text-align: center; 
+  }

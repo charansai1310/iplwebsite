@@ -1,0 +1,42 @@
+.dropdown-pointstable-div{
+    margin: 50px 100px auto;
+}
+.pointstablediv {
+    width: 70%; 
+    margin: 50px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .pointstable {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .pointstable th, .pointstable td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .pointstable th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .team-column {
+    width: 250px; 
+    text-align: left; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .pointstable td {
+    text-align: center; 
+  }
+
+  .team-info {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    justify-content: left;
+  }

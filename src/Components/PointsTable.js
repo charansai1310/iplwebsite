@@ -1,7 +1,13 @@
-import React, { useState } from "react";
-import { 
-  Table, TableBody, TableCell, TableContainer, 
-  TableHead, TableRow, Paper, Box 
+import React from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Box,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Dropdown from "./Dropdown";
@@ -11,19 +17,19 @@ const StyledTableContainer = styled(TableContainer)(({ theme }) => ({
   margin: theme.spacing(2, 0),
   borderRadius: theme.spacing(1),
   boxShadow: theme.shadows[2],
-  '& .MuiTable-root': {
+  "& .MuiTable-root": {
     minWidth: 650,
   },
 }));
 
 const PointsTable = () => {
-  const [selectedYear, setSelectedYear] = useState("2024");
+  // const [selectedYear, setSelectedYear] = useState("2024");
   const options = ["Season 2024", "Season 2023", "Season 2022"];
 
-  const handleSeasonSelection = (option) => {
-    const year = option.split(" ")[1];
-    setSelectedYear(year);
-  };
+  // const handleSeasonSelection = (option) => {
+  //   const year = option.split(" ")[1];
+  //   setSelectedYear(year);
+  // };
 
   const tableData = [
     {
@@ -34,7 +40,7 @@ const PointsTable = () => {
       nrr: "+0.652",
       points: 20,
       logo: "https://scores.iplt20.com/ipl/teamlogos/CSK.png?v=2",
-      lastFive: ["W", "W", "L", "W", "W"]
+      lastFive: ["W", "W", "L", "W", "W"],
     },
     // ... more teams
   ];
@@ -44,11 +50,11 @@ const PointsTable = () => {
       <Box sx={{ mb: 3 }}>
         <Dropdown
           options={options}
-          onSelect={handleSeasonSelection}
+          // onSelect={handleSeasonSelection}
           initialState={"Season 2024"}
         />
       </Box>
-      
+
       <StyledTableContainer component={Paper}>
         <Table>
           <TableHead>
@@ -68,7 +74,7 @@ const PointsTable = () => {
               <TableRow key={index}>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>
-                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                     <TeamLogo imageLink={row.logo} variant="circular" />
                     {row.team}
                   </Box>
@@ -79,20 +85,23 @@ const PointsTable = () => {
                 <TableCell align="center">{row.nrr}</TableCell>
                 <TableCell align="center">{row.points}</TableCell>
                 <TableCell>
-                  <Box sx={{ display: 'flex', gap: 0.5, justifyContent: 'center' }}>
+                  <Box
+                    sx={{ display: "flex", gap: 0.5, justifyContent: "center" }}
+                  >
                     {row.lastFive.map((result, i) => (
                       <Box
                         key={i}
                         sx={{
                           width: 24,
                           height: 24,
-                          borderRadius: '50%',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          bgcolor: result === 'W' ? 'success.main' : 'error.main',
-                          color: 'white',
-                          fontSize: '0.75rem'
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          bgcolor:
+                            result === "W" ? "success.main" : "error.main",
+                          color: "white",
+                          fontSize: "0.75rem",
                         }}
                       >
                         {result}

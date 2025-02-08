@@ -1,5 +1,5 @@
 import React from "react";
-import "./CirculatTeamLogo.css";
+import "../styles/CirculatTeamLogo.css";
 const CircularTeamLogo = ({ imageLink }) => {
   return (
     <div className="circularteamlogo">

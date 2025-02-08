@@ -1,5 +1,5 @@
 import React from "react";
-import "./TeamTile.css";
+import "../styles/TeamTile.css";
 import FlatTeamLogo from "./FlatTeamLogo";
 
 const TeamTile = ({ onClick, imageLink, teamName, color1 }) => {

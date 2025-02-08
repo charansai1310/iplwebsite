@@ -1,7 +1,84 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import "./TeamPlayers.css";
+import "../styles/TeamPlayers.css";
 import PlayersTile from "./PlayersTile";
+import { Box, Typography, Grid, Button } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const TeamHeader = styled(Box)(({ theme, bgcolor }) => ({
+  backgroundColor: bgcolor || theme.palette.primary.main,
+  padding: theme.spacing(4),
+  color: "#000",
+  borderRadius: theme.spacing(1),
+  marginBottom: theme.spacing(3),
+}));
+
+const TeamLogo = styled('img')({
+  width: '150px',
+  height: 'auto',
+  marginRight: '20px',
+});
+
+const TeamInfo = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '20px',
+  flexWrap: 'wrap',
+});
+
+const TeamDetails = styled(Box)(({ theme }) => ({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(3, 1fr)',
+  gap: theme.spacing(3),
+  marginTop: theme.spacing(3),
+  [theme.breakpoints.down('md')]: {
+    gridTemplateColumns: 'repeat(2, 1fr)',
+  },
+  [theme.breakpoints.down('sm')]: {
+    gridTemplateColumns: '1fr',
+  },
+}));
+
+const DetailItem = styled(Box)(({ theme }) => ({
+  '& h4': {
+    color: 'rgba(0, 0, 0, 0.8)',
+    marginBottom: theme.spacing(1),
+  },
+  '& p': {
+    fontSize: '1.1rem',
+    fontWeight: 500,
+    color: '#000',
+  },
+}));
+
+const PlayersGrid = styled(Box)(({ theme }) => ({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+  gap: theme.spacing(6),
+  padding: theme.spacing(3),
+  '& > *': {
+    width: '100%',
+    height: '100%',
+  },
+  [theme.breakpoints.down('sm')]: {
+    gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+    gap: theme.spacing(3),
+    padding: theme.spacing(2),
+  },
+}));
+
+const teamColors = {
+  "Chennai Super Kings": "#FFFF00", // Yellow
+  "Mumbai Indians": "#004BA0", // Blue
+  "Royal Challengers Bangalore": "#FF0000", // Red
+  "Kolkata Knight Riders": "#552583", // Purple
+  "Delhi Capitals": "#0078BC", // Blue
+  "Punjab Kings": "#ED1B24", // Red
+  "Rajasthan Royals": "#FF69B4", // Pink
+  "Sunrisers Hyderabad": "#FF822A", // Orange
+  "Gujarat Titans": "#1B2133", // Navy Blue
+  "Lucknow Super Giants": "#A7D5EF", // Light Blue
+};
 
 const TeamPlayers = () => {
   const { teamName } = useParams();
@@ -52,58 +129,62 @@ const TeamPlayers = () => {
     venue: "M. A. Chidambaram Stadium",
     officialSite: "https://www.chennaisuperkings.com",
     logo: "https://documents.iplt20.com/ipl/CSK/logos/Logooutline/CSKoutline.png",
-    color: "yellow",
+    color: teamColors[teamName] || "#1A237E", // Use mapped color or default to dark blue
   };
   return (
-    <div className="teamplayers">
-      <div
-        className="team-details"
-        style={{ backgroundColor: teamDetails.color }}
-      >
-        <div className="group2">
-          <img src={teamDetails.logo} alt={`${teamName} logo`} />
-          <div className="group1">
-            <h2>{teamName}</h2>
-            <div
-              style={{
-                width: "200px",
-                backgroundColor: "red",
-                textAlign: "center",
-                borderRadius: "10px",
+    <Box sx={{ p: { xs: 1, sm: 2, md: 3 } }}>
+      <TeamHeader bgcolor={teamDetails.color}>
+        <TeamInfo>
+          <TeamLogo src={teamDetails.logo} alt={`${teamName} logo`} />
+          <Box>
+            <Typography variant="h4" component="h1" gutterBottom>
+              {teamName}
+            </Typography>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={() => window.open(teamDetails.officialSite, "_blank", "noopener,noreferrer")}
+              sx={{ 
+                borderRadius: 2,
+                textTransform: 'none',
+                fontWeight: 500,
               }}
-              onClick={() =>
-                window.open(
-                  teamDetails.officialSite,
-                  "_blank",
-                  "noopener,noreferrer"
-                )
-              }
             >
-              <h3>Official Team Site</h3>
-            </div>
-          </div>
-        </div>
-        <div className="group3">
-          <div className="group5" style={{ width: "350px", textAlign: "left" }}>
-            <h4>Owner - </h4>
-            <p> {teamDetails.owner}</p>
-          </div>
-          <div className="group5" style={{ width: "350px", textAlign: "left" }}>
-            <h4>Coach - </h4>
-            <p>{teamDetails.coach}</p>
-          </div>
-          <div className="group5" style={{ width: "350px", textAlign: "left" }}>
-            <h4>Venue - </h4>
-            <p>{teamDetails.venue}</p>
-          </div>
-        </div>
-      </div>
-      <div className="squad">
+              Official Team Site
+            </Button>
+          </Box>
+        </TeamInfo>
+
+        <TeamDetails>
+          <DetailItem>
+            <Typography variant="h6" component="h4">Owner</Typography>
+            <Typography>{teamDetails.owner}</Typography>
+          </DetailItem>
+          <DetailItem>
+            <Typography variant="h6" component="h4">Coach</Typography>
+            <Typography>{teamDetails.coach}</Typography>
+          </DetailItem>
+          <DetailItem>
+            <Typography variant="h6" component="h4">Venue</Typography>
+            <Typography>{teamDetails.venue}</Typography>
+          </DetailItem>
+        </TeamDetails>
+      </TeamHeader>
+
+      <Typography variant="h5" gutterBottom sx={{ ml: 2, color: '#000' }}>
+        Squad
+      </Typography>
+      
+      <PlayersGrid>
         {players.map((player, index) => (
-          <PlayersTile key={index} player={player} />
+          <PlayersTile 
+            key={index} 
+            player={player} 
+            teamColor={teamColors[teamName]}
+          />
         ))}
-      </div>
-    </div>
+      </PlayersGrid>
+    </Box>
   );
 };
 

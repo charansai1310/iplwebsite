@@ -1,5 +1,5 @@
 import React from "react";
-import "./FlatTeamLogo.css";
+import "../styles/FlatTeamLogo.css";
 const FlatTeamLogo = ({ imageLink }) => {
   return (
     <div className="flatteamlogo">

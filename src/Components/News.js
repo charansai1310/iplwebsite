@@ -1,46 +1,59 @@
 import React from "react";
-import NewsTile from "./NewsTile";
-import { useNavigate } from "react-router-dom";
-import "./News.css";
+import NewsCard from "./NewsCard";
+import "../styles/News.css";
 
 const News = () => {
-  const navigate = useNavigate();
-  const news_data = [
+  const news = [
     {
-      news_title: "TATA IPL 2025 Player Auction List Announced",
-      news_date: "15 Nov, 2024",
+      id: 1,
+      headline: "TATA IPL 2025 Player Auction List Announced",
+      date: "15 Nov, 2024",
+      imageUrl:
+        "https://www.iplt20.com/assets/images/news/2024/11/15/auction-list-2025.jpg",
     },
     {
-      news_title: "1574 players register for TATA IPL 2025 Player Auction",
-      news_date: "05 Nov, 2024",
+      id: 2,
+      headline: "1574 players register for TATA IPL 2025 Player Auction",
+      date: "05 Nov, 2024",
+      imageUrl:
+        "https://www.iplt20.com/assets/images/news/2024/11/05/auction-register-2025.jpg",
     },
     {
-      news_title: "TATA IPL 2025 Player retentions list announced",
-      news_date: "01 Nov, 2024",
+      id: 3,
+      headline: "TATA IPL 2025 Player retentions list announced",
+      date: "01 Nov, 2024",
+      imageUrl:
+        "https://www.iplt20.com/assets/images/news/2024/11/01/retention-list-2025.jpg",
     },
     {
-      news_title:
+      id: 4,
+      headline:
         "IPL Governing Council announces TATA IPL Player Regulations 2025-27",
-      news_date: "28 Sep, 2024",
+      date: "28 Sep, 2024",
+      imageUrl:
+        "https://www.iplt20.com/assets/images/news/2024/09/28/player-regulations-2025-27.jpg",
     },
     {
-      news_title: "IPL Owners Meeting - Update",
-      news_date: "31 Jul, 2024",
+      id: 5,
+      headline: "IPL Owners Meeting - Update",
+      date: "31 Jul, 2024",
+      imageUrl:
+        "https://www.iplt20.com/assets/images/news/2024/07/31/owners-meeting-update.jpg",
     },
   ];
 
   return (
-    <div className="news">
-      {news_data.map((newsItem, index) => (
-        <NewsTile
-          key={index}
-          title={newsItem.news_title}
-          date={newsItem.news_date}
-          onClick={() =>
-            navigate(`/news/${encodeURIComponent(newsItem.news_title)}`)
-          }
-        />
-      ))}
+    <div className="news-container">
+      <div className="news-grid">
+        {news.map((item) => (
+          <NewsCard
+            key={item.id}
+            headline={item.headline}
+            date={item.date}
+            imageUrl={item.imageUrl}
+          />
+        ))}
+      </div>
     </div>
   );
 };

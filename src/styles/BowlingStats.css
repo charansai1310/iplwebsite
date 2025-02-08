@@ -1,0 +1,119 @@
+.bowlingStats {
+    width: 70%; 
+    margin: 50px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .bowling-stats {
+    width: 100%;
+    border-collapse: collapse; 
+  }
+  
+  .bowling-stats th, .bowling-stats td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .bowling-stats th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .bowling-stats td {
+    text-align: center; 
+  }
+
+.bowling-stats-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+.bowling-stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* Ensures table doesn't get too squeezed */
+}
+
+.bowling-stats-table th,
+.bowling-stats-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.bowling-stats-table th {
+  background-color: #1a237e;
+  color: white;
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.bowling-stats-table td {
+  font-size: var(--text-sm);
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .bowling-stats-container {
+    width: 98%;
+    padding: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bowling-stats-container {
+    padding: 10px;
+  }
+
+  .bowling-stats-table th,
+  .bowling-stats-table td {
+    padding: 10px;
+    font-size: var(--text-xs);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bowling-stats-container {
+    padding: 8px;
+  }
+
+  .bowling-stats-table th,
+  .bowling-stats-table td {
+    padding: 8px;
+  }
+
+  .table-wrapper {
+    margin-top: 15px;
+  }
+}
+
+/* Custom scrollbar for better UX */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+

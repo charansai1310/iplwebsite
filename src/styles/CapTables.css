@@ -1,0 +1,200 @@
+.cap-table-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cap-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+}
+
+.cap-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+.cap-table th,
+.cap-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: var(--text-sm);
+}
+
+.cap-table th {
+  font-weight: var(--font-semibold);
+  color: white;
+  white-space: nowrap;
+}
+
+/* Orange Cap specific styles */
+.orange .cap-table th {
+  background-color: #ff8c00;
+}
+
+.orange .cap-title {
+  color: #ff8c00;
+}
+
+/* Purple Cap specific styles */
+.purple .cap-table th {
+  background-color: #800080;
+}
+
+.purple .cap-title {
+  color: #800080;
+}
+
+.player-column {
+  text-align: left !important;
+  min-width: 150px;
+}
+
+/* Zebra striping */
+.cap-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.cap-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Custom scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive styles with size reduction */
+@media screen and (max-width: 1200px) {
+  .cap-table-container {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .cap-table {
+    min-width: 800px;
+  }
+
+  .cap-table .hide-xl {
+    display: none;
+  }
+
+  .cap-table th,
+  .cap-table td {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cap-table-container {
+    width: 85%;
+    padding: 12px;
+  }
+
+  .cap-table {
+    min-width: 600px;
+  }
+
+  .cap-table .hide-lg {
+    display: none;
+  }
+
+  .cap-table th,
+  .cap-table td {
+    padding: 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .cap-title {
+    font-size: var(--text-lg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cap-table-container {
+    width: 80%;
+    padding: 10px;
+  }
+
+  .cap-table {
+    min-width: 450px;
+  }
+
+  .cap-table .hide-md {
+    display: none;
+  }
+
+  .cap-table th,
+  .cap-table td {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+
+  .player-column {
+    min-width: 120px;
+  }
+
+  .cap-title {
+    font-size: var(--text-base);
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cap-table-container {
+    width: 95%;
+    padding: 8px;
+  }
+
+  .cap-table {
+    min-width: 300px;
+  }
+
+  .cap-table .hide-sm {
+    display: none;
+  }
+
+  .cap-table th,
+  .cap-table td {
+    padding: 6px;
+    font-size: 0.75rem;
+  }
+
+  .player-column {
+    min-width: 100px;
+  }
+
+  .cap-title {
+    font-size: var(--text-sm);
+    margin-bottom: 10px;
+  }
+} 

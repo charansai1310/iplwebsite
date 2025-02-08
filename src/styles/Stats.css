@@ -1,0 +1,239 @@
+.dropdown-season-div{
+    margin: 50px 220px auto;
+}
+
+.dropdown-cap-div{
+    margin: -39px 420px auto;
+}
+
+.stats-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Updated dropdown styles */
+.dropdowns-container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dropdown-season-div,
+.dropdown-type-div {
+  position: relative;
+  height: 40px; /* Fixed height for both dropdowns */
+}
+
+/* Ensure the dropdowns themselves are aligned */
+.dropdown-season-div .dropdown,
+.dropdown-type-div .dropdown {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Ensure dropdown buttons are aligned */
+.dropdown-season-div button,
+.dropdown-type-div button {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.stats-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+  font-weight: var(--font-bold);
+  font-size: var(--text-2xl);
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* Prevents table from becoming too narrow */
+  background: white;
+}
+
+.stats-table th,
+.stats-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.stats-table th {
+  background-color: #1a237e;
+  color: white;
+  font-weight: var(--font-semibold);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+}
+
+.stats-table td {
+  font-size: var(--text-sm);
+}
+
+/* Player name column */
+.stats-table td:nth-child(2) {
+  text-align: left;
+}
+
+/* Custom scrollbar */
+.table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 1200px) {
+  .stats-container,
+  .dropdowns-container {
+    width: 98%;
+  }
+
+  .stats-table th,
+  .stats-table td {
+    padding: 10px 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stats-container,
+  .dropdowns-container {
+    padding: 15px;
+  }
+
+  .stats-title {
+    font-size: var(--text-xl);
+  }
+
+  .stats-table th,
+  .stats-table td {
+    padding: 8px 10px;
+    font-size: var(--text-xs);
+  }
+
+  .dropdowns-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .stats-container,
+  .dropdowns-container {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .stats-title {
+    font-size: var(--text-lg);
+    margin-bottom: 15px;
+  }
+
+  .table-wrapper {
+    margin-top: 15px;
+    border-radius: 6px;
+  }
+
+  .stats-table th,
+  .stats-table td {
+    padding: 8px;
+  }
+}
+
+/* Orange Cap specific styles */
+.orange-cap-table th {
+  background-color: #ff8c00;
+}
+
+/* Purple Cap specific styles */
+.purple-cap-table th {
+  background-color: #800080;
+}
+
+/* Zebra striping for better readability */
+.stats-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.stats-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdowns-wrapper {
+  width: 95%;
+  max-width: 1400px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.dropdown-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  height: 40px;
+}
+
+.dropdown-item {
+  height: 100%;
+}
+
+.dropdown-item > div {
+  height: 100%;
+}
+
+.table-section {
+  margin-top: 20px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .dropdown-row {
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+
+  .dropdown-item {
+    width: 100%;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .stats-container,
+  .dropdowns-wrapper {
+    padding: 10px;
+  }
+}

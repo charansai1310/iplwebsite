@@ -1,40 +1,50 @@
 import React, { useState } from "react";
 import Dropdown from "./Dropdown";
-import "./Stats.css";
-import OrangeCapTable from "./OrangeCapTable";
-import PurpleCapTable from "./PurpleCapTable";
+import "../styles/Stats.css";
+import CapTable from "./CapTable";
 
 const Stats = () => {
-  const [selectedYear, setSelectedYear] = useState(2010);
-  const year_options = ["Season 2010", "Season 2009", "Season 2008"];
-  const handleSeasonSelection = (options) => {
-    const year = options.split(" ")[1];
-    setSelectedYear(year);
+  const [selectedSeason, setSelectedSeason] = useState("2024");
+  const [selectedType, setSelectedType] = useState("Orange Cap");
+
+  const seasonOptions = ["Season 2024", "Season 2023", "Season 2022"];
+  const typeOptions = ["Orange Cap", "Purple Cap"];
+
+  const handleSeasonSelection = (option) => {
+    const year = option.split(" ")[1];
+    setSelectedSeason(year);
   };
-  const [selectedCap, setSelectedCap] = useState("Orange Cap");
-  const cap_options = ["Orange Cap", "Purple Cap"];
-  const handleCapSelection = (options) => {
-    const cap = options;
-    setSelectedCap(cap);
+
+  const handleTypeSelection = (option) => {
+    setSelectedType(option);
   };
+
   return (
-    <div>
-      <div className="dropdown-season-div">
-        <Dropdown
-          options={year_options}
-          onSelect={handleSeasonSelection}
-          initialState={"Season 2024"}
-        />
+    <div className="stats-container">
+      <div className="dropdowns-wrapper">
+        <div className="dropdown-row">
+          <div className="dropdown-item">
+            <Dropdown
+              options={seasonOptions}
+              onSelect={handleSeasonSelection}
+              initialState={"Season 2024"}
+            />
+          </div>
+          <div className="dropdown-item">
+            <Dropdown
+              options={typeOptions}
+              onSelect={handleTypeSelection}
+              initialState={"Orange Cap"}
+            />
+          </div>
+        </div>
       </div>
-      <div className="dropdown-cap-div">
-        <Dropdown
-          options={cap_options}
-          onSelect={handleCapSelection}
-          initialState={"Orange Cap"}
+
+      <div className="table-section">
+        <CapTable
+          type={selectedType === "Orange Cap" ? "orange" : "purple"}
+          data={[]}
         />
-      </div>
-      <div>
-        {selectedCap === "Orange Cap" ? <OrangeCapTable /> : <PurpleCapTable />}
       </div>
     </div>
   );

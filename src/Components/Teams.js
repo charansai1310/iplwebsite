@@ -1,87 +1,91 @@
 import React from "react";
-import TeamTile from "./TeamTile";
-import { useNavigate } from "react-router-dom";
-import "./Teams.css";
+import { Link } from "react-router-dom";
+import "../styles/Teams.css";
+
 const Teams = () => {
-  const navigate = useNavigate();
   const teams = [
     {
-      teamName: "Chennai Super Kings",
-      logo: "https://documents.iplt20.com/ipl/CSK/logos/Logooutline/CSKoutline.png",
-      color1: "yellow",
-      color2: "black",
+      id: 1,
+      name: "Chennai Super Kings",
+      logo: "csk-logo.png",
+      color: "#FFFF00", // Yellow
     },
     {
-      teamName: "Delhi Capitals",
-      logo: "https://documents.iplt20.com/ipl/DC/Logos/LogoOutline/DCoutline.png",
-      color1: "darkred",
-      color2: "darkblue",
+      id: 2,
+      name: "Mumbai Indians",
+      logo: "mi-logo.png",
+      color: "#004BA0", // Blue
     },
     {
-      teamName: "Gujarat Titans",
-      logo: "https://documents.iplt20.com/ipl/GT/Logos/Logooutline/GToutline.png",
-      color1: "skyblue",
-      color2: "black",
+      id: 3,
+      name: "Royal Challengers Bangalore",
+      logo: "rcb-logo.png",
+      color: "#FF0000", // Red
     },
     {
-      teamName: "Kolkata Knight Riders",
-      logo: "https://documents.iplt20.com/ipl/KKR/Logos/Logooutline/KKRoutline.png",
-      color1: "gold",
-      color2: "purple",
+      id: 4,
+      name: "Kolkata Knight Riders",
+      logo: "kkr-logo.png",
+      color: "#552583", // Purple
     },
     {
-      teamName: "Lucknow Super Giants",
-      logo: "https://documents.iplt20.com/ipl/LSG/Logos/Logooutline/LSGoutline.png",
-      color1: "white",
-      color2: "blue",
+      id: 5,
+      name: "Delhi Capitals",
+      logo: "dc-logo.png",
+      color: "#FF0000", // Red
     },
     {
-      teamName: "Mumbai Indians",
-      logo: "https://documents.iplt20.com/ipl/MI/Logos/Logooutline/MIoutline.png",
-      color1: "skyblue",
-      color2: "indigo",
+      id: 6,
+      name: "Punjab Kings",
+      logo: "pbks-logo.png",
+      color: "#FF69B4", // Pink
     },
     {
-      teamName: "Punjab Kings",
-      logo: "https://documents.iplt20.com/ipl/PBKS/Logos/Logooutline/PBKSoutline.png",
-      color1: "red",
-      color2: "blue",
+      id: 7,
+      name: "Rajasthan Royals",
+      logo: "rr-logo.png",
+      color: "#0000FF", // Blue
     },
     {
-      teamName: "Rajasthan Royals",
-      logo: "https://documents.iplt20.com/ipl/RR/Logos/Logooutline/RRoutline.png",
-      color1: "pink",
-      color2: "blue",
+      id: 8,
+      name: "Sunrisers Hyderabad",
+      logo: "srh-logo.png",
+      color: "#FFA500", // Orange
     },
     {
-      teamName: "Royal Challengers Bengaluru",
-      logo: "https://documents.iplt20.com/ipl/RCB/Logos/Logooutline/RCBoutline.png",
-      color1: "green",
-      color2: "darkred",
+      id: 9,
+      name: "Gujarat Titans",
+      logo: "gt-logo.png",
+      color: "#8A2BE2", // Violet
     },
     {
-      teamName: "Sunrisers Hyderabad",
-      logo: "https://documents.iplt20.com/ipl/SRH/Logos/Logooutline/SRHoutline.png",
-      color1: "orange",
-      color2: "red",
+      id: 10,
+      name: "Lucknow Super Giants",
+      logo: "lsg-logo.png",
+      color: "#808080", // Grey
     },
   ];
+
   return (
-    <div className="teams">
-      {teams.map((team, index) => (
-        <div className="teams" key={index}>
-          <TeamTile
-            onClick={() =>
-              navigate(
-                `/team/players/${team.teamName}`
-              )
-            }
-            imageLink={team.logo}
-            teamName={team.teamName}
-            color1={team.color1}
-          />
-        </div>
-      ))}
+    <div className="teams-container">
+      <div className="teams-grid">
+        {teams.map((team) => (
+          <Link
+            to={`/team/players/${team.name}`}
+            key={team.id}
+            className="team-card"
+            style={{
+              backgroundColor: team.color,
+              color: ["#FFFF00", "#FFA500"].includes(team.color)
+                ? "#000"
+                : "#fff", // Dark text for light backgrounds
+            }}
+          >
+            <img src={team.logo} alt={team.name} />
+            <h2>{team.name}</h2>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

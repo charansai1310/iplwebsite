@@ -1,8 +1,11 @@
 import React from "react";
-import "./MatchDetails.css";
-import CircularTeamLogo from "./CircularTeamLogo";
-
+import "../styles/MatchDetails.css";
+import TeamLogo from "./TeamLogo";
+import Button from "@mui/material/Button";
+import SportsCricketIcon from "@mui/icons-material/SportsCricket";
+import { useNavigate } from "react-router-dom";
 const MatchDetails = ({ match }) => {
+  const navigate = useNavigate();
   return (
     <div className="match-details-container">
       {/* Match Type */}
@@ -30,7 +33,7 @@ const MatchDetails = ({ match }) => {
       {/* Teams and Scores */}
       <div className="item teams-scores">
         <div className="team-info">
-          <CircularTeamLogo imageLink={match.team1_logo} />
+          <TeamLogo imageLink={match.team1_logo} variant="circular" />
           {match.team1}
           <br />
           {match.team1_score}
@@ -44,7 +47,7 @@ const MatchDetails = ({ match }) => {
         />
 
         <div className="team-info">
-          <CircularTeamLogo imageLink={match.team2_logo} />
+          <TeamLogo imageLink={match.team2_logo} variant="circular" />
           {match.team2}
           <br />
           {match.team2_score}
@@ -54,7 +57,24 @@ const MatchDetails = ({ match }) => {
 
       {/* Match Center Button */}
       <div className="item match-center">
-        <button>Match Center</button>
+        <Button
+          variant="contained"
+          color="primary"
+          startIcon={<SportsCricketIcon />}
+          sx={{
+            backgroundColor: "#1a237e",
+            "&:hover": {
+              backgroundColor: "#0d47a1",
+            },
+            borderRadius: "20px",
+            padding: "8px 24px",
+            textTransform: "none",
+            fontWeight: 500,
+          }}
+          onClick={() => navigate(`/match-center/${match.year}/${match.id}`)}
+        >
+          Match Center
+        </Button>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import "../styles/TeamPlayers.css";
 import PlayersTile from "./PlayersTile";
-import { Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { styled } from "@mui/material/styles";
 
 const TeamHeader = styled(Box)(({ theme, bgcolor }) => ({
@@ -13,55 +13,55 @@ const TeamHeader = styled(Box)(({ theme, bgcolor }) => ({
   marginBottom: theme.spacing(3),
 }));
 
-const TeamLogo = styled('img')({
-  width: '150px',
-  height: 'auto',
-  marginRight: '20px',
+const TeamLogo = styled("img")({
+  width: "150px",
+  height: "auto",
+  marginRight: "20px",
 });
 
 const TeamInfo = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '20px',
-  flexWrap: 'wrap',
+  display: "flex",
+  alignItems: "center",
+  gap: "20px",
+  flexWrap: "wrap",
 });
 
 const TeamDetails = styled(Box)(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(3, 1fr)',
+  display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
   gap: theme.spacing(3),
   marginTop: theme.spacing(3),
-  [theme.breakpoints.down('md')]: {
-    gridTemplateColumns: 'repeat(2, 1fr)',
+  [theme.breakpoints.down("md")]: {
+    gridTemplateColumns: "repeat(2, 1fr)",
   },
-  [theme.breakpoints.down('sm')]: {
-    gridTemplateColumns: '1fr',
+  [theme.breakpoints.down("sm")]: {
+    gridTemplateColumns: "1fr",
   },
 }));
 
 const DetailItem = styled(Box)(({ theme }) => ({
-  '& h4': {
-    color: 'rgba(0, 0, 0, 0.8)',
+  "& h4": {
+    color: "rgba(0, 0, 0, 0.8)",
     marginBottom: theme.spacing(1),
   },
-  '& p': {
-    fontSize: '1.1rem',
+  "& p": {
+    fontSize: "1.1rem",
     fontWeight: 500,
-    color: '#000',
+    color: "#000",
   },
 }));
 
 const PlayersGrid = styled(Box)(({ theme }) => ({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
   gap: theme.spacing(6),
   padding: theme.spacing(3),
-  '& > *': {
-    width: '100%',
-    height: '100%',
+  "& > *": {
+    width: "100%",
+    height: "100%",
   },
-  [theme.breakpoints.down('sm')]: {
-    gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+  [theme.breakpoints.down("sm")]: {
+    gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
     gap: theme.spacing(3),
     padding: theme.spacing(2),
   },
@@ -143,10 +143,16 @@ const TeamPlayers = () => {
             <Button
               variant="contained"
               color="secondary"
-              onClick={() => window.open(teamDetails.officialSite, "_blank", "noopener,noreferrer")}
-              sx={{ 
+              onClick={() =>
+                window.open(
+                  teamDetails.officialSite,
+                  "_blank",
+                  "noopener,noreferrer"
+                )
+              }
+              sx={{
                 borderRadius: 2,
-                textTransform: 'none',
+                textTransform: "none",
                 fontWeight: 500,
               }}
             >
@@ -157,29 +163,35 @@ const TeamPlayers = () => {
 
         <TeamDetails>
           <DetailItem>
-            <Typography variant="h6" component="h4">Owner</Typography>
+            <Typography variant="h6" component="h4">
+              Owner
+            </Typography>
             <Typography>{teamDetails.owner}</Typography>
           </DetailItem>
           <DetailItem>
-            <Typography variant="h6" component="h4">Coach</Typography>
+            <Typography variant="h6" component="h4">
+              Coach
+            </Typography>
             <Typography>{teamDetails.coach}</Typography>
           </DetailItem>
           <DetailItem>
-            <Typography variant="h6" component="h4">Venue</Typography>
+            <Typography variant="h6" component="h4">
+              Venue
+            </Typography>
             <Typography>{teamDetails.venue}</Typography>
           </DetailItem>
         </TeamDetails>
       </TeamHeader>
 
-      <Typography variant="h5" gutterBottom sx={{ ml: 2, color: '#000' }}>
+      <Typography variant="h5" gutterBottom sx={{ ml: 2, color: "#000" }}>
         Squad
       </Typography>
-      
+
       <PlayersGrid>
         {players.map((player, index) => (
-          <PlayersTile 
-            key={index} 
-            player={player} 
+          <PlayersTile
+            key={index}
+            player={player}
             teamColor={teamColors[teamName]}
           />
         ))}

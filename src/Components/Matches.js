@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import Dropdown from "./Dropdown";
 import MatchDetails from "./MatchDetails";
 const Matches = () => {
-  const [selectedYear, setSelectedYear] = useState(2010);
+  // const [selectedYear, setSelectedYear] = useState(2010);
   const options = ["Season 2010", "Season 2009", "Season 2008"];
-  const handleSeasonSelection = (options) => {
-    const year = options.split(" ")[1];
-    setSelectedYear(year);
-  };
+  // const handleSeasonSelection = (options) => {
+  //   const year = options.split(" ")[1];
+  //   setSelectedYear(year);
+  // };
   const matches = [
     {
       date_time: "May, Sun 26, 7:30PM IST",
@@ -57,7 +57,7 @@ const Matches = () => {
       <div className="dropdown-pointstable-div">
         <Dropdown
           options={options}
-          onSelect={handleSeasonSelection}
+          // onSelect={handleSeasonSelection}
           initialState={"Season 2024"}
         />
       </div>
